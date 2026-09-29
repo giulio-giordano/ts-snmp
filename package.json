@@ -1,0 +1,38 @@
+{
+  "name": "ts-snmp",
+  "version": "1.0.0",
+  "description": "A typed SNMPv1, SNMPv2c, and SNMPv3 client for Node.js and Bun.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepack": "npm run build",
+    "test": "bun test",
+    "test:node": "npm run build && node test/node-smoke.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^22.0.0",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "des.js": "^1.1.0"
+  }
+}
